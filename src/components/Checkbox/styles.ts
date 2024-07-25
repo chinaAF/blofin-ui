@@ -47,10 +47,23 @@ const disabledMarkStyles = cva(
   "bu-flex bu-h-3 bu-w-3 bu-items-center bu-justify-center bu-border bu-bg-transparent"
 );
 
+const CheckIconVariants = cva(
+  "bu-h-6 bu-w-6 bu-text-light-primary",
+  {
+    variants: {
+      disabled: {
+        true: ["bu-text-light-primary-40"],
+        false: ["bu-text-light-primary"]
+      }
+    }
+  }
+);
+
 export {
   CheckMarkVariants,
   CheckboxLabelVariants,
   CheckMarkCheckedStyles,
   CheckboxCheckedStyles,
-  disabledMarkStyles
+  disabledMarkStyles,
+  CheckIconVariants
 };

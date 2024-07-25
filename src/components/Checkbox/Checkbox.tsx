@@ -7,8 +7,11 @@ import {
   CheckMarkVariants,
   CheckboxCheckedStyles,
   CheckboxLabelVariants,
-  disabledMarkStyles
+  disabledMarkStyles,
+  CheckIconVariants
 } from "./styles";
+import CheckboxTrueIcon from "../../assets/icons/checkbox-true.svg";
+import CheckboxFalseIcon from "../../assets/icons/checkbox-false.svg";
 
 export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: ReactNode;
@@ -35,9 +38,8 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
         checked={checked}
         onChange={handleChange}
       />
-      <span
+      {/* <span
         className={cn(
-          styles.checkmark,
           checked
             ? disabled
               ? disabledMarkStyles()
@@ -47,7 +49,13 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
             : CheckMarkVariants({
                 theme: mode || theme
               })
-        )}></span>
+        )}>
+      </span> */}
+      {
+        checked ?
+        <CheckboxTrueIcon className={cn(CheckIconVariants({disabled}))} /> :
+        <CheckboxFalseIcon className={cn(CheckIconVariants({disabled}))} />
+      }
       <span
         className={
           checked

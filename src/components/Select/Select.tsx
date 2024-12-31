@@ -7,12 +7,14 @@ import useAlign from "../../hooks/useAlign";
 import { keyBy } from "../../utils/helper";
 import { cn } from "../../utils/utils";
 import SearchIcon from "../../assets/icons/search.svg";
+import DangerIcon from "../../assets/icons/danger-medium.svg";
 import {
   labelStyles,
   menuItemStyles,
   menuStyles,
   outlinedStyles,
   searchIconStyles,
+  closeIconStyles,
   searchStyles
 } from "./styles";
 
@@ -67,7 +69,10 @@ const SelectMenu = forwardRef<HTMLDivElement, SelectMenuProps>(
 
     const { offsetLeft, offsetRight, offsetY } = offset;
 
+    const [searchValue, setSearchValue] = useState("");
+
     const handleSearch = (value: string) => {
+      setSearchValue(value);
       searchChange && searchChange(value);
     };
 
@@ -89,6 +94,17 @@ const SelectMenu = forwardRef<HTMLDivElement, SelectMenuProps>(
               variant="filled"
               className="bu-h-[38px]"
               startAdornment={<SearchIcon className={searchIconStyles({ theme })} />}
+              endAdornment={
+                searchValue && (
+                  <DangerIcon
+                    className={closeIconStyles({ theme })}
+                    onClick={() => {
+                      setSearchValue("");
+                      searchChange && searchChange("");
+                    }}
+                  />
+                )
+              }
               onChange={(e) => handleSearch(e.target.value)}
             />
           </div>
@@ -207,21 +223,21 @@ const Select = forwardRef<HTMLInputElement, SelectProps>((props, ref) => {
   };
 
   const onMouseEnter = () => {
-    if(inputDisabled) return;
+    if (inputDisabled) return;
     if (trigger === "hover") {
       setShowMenu(true);
     }
   };
 
   const onMouseLeave = () => {
-    if(inputDisabled) return;
+    if (inputDisabled) return;
     if (trigger === "hover") {
       setShowMenu(false);
     }
   };
 
   const onClick = () => {
-    if(inputDisabled) return;
+    if (inputDisabled) return;
     if (trigger === "click") {
       setShowMenu((preState) => !preState);
     }
@@ -282,12 +298,14 @@ const Select = forwardRef<HTMLInputElement, SelectProps>((props, ref) => {
           wrapper(
             <Typography
               variant="body4"
-              className={`${labelClassName} ${isHover ? hoverClassName : ''}`}>
+              className={`${labelClassName} ${isHover ? hoverClassName : ""}`}>
               {keyByItemsMemo[String(value)]?.[labelField]}
             </Typography>
           )
         ) : (
-          <Typography variant="body4" className={`${labelClassName} ${isHover ? hoverClassName : ''}`}>
+          <Typography
+            variant="body4"
+            className={`${labelClassName} ${isHover ? hoverClassName : ""}`}>
             {keyByItemsMemo[String(value)]?.[labelField]}
           </Typography>
         )}
@@ -297,7 +315,7 @@ const Select = forwardRef<HTMLInputElement, SelectProps>((props, ref) => {
               labelStyles({
                 theme: mode || theme
               })
-            )} ${arrowClassName} ${isHover ? hoverClassName : ''}`}
+            )} ${arrowClassName} ${isHover ? hoverClassName : ""}`}
           />
         ) : (
           <SelectArrow
@@ -305,7 +323,7 @@ const Select = forwardRef<HTMLInputElement, SelectProps>((props, ref) => {
               outlinedStyles({
                 theme: mode || theme
               })
-            )} ${arrowClassName} ${isHover ? hoverClassName : ''}`}
+            )} ${arrowClassName} ${isHover ? hoverClassName : ""}`}
           />
         )}
       </div>

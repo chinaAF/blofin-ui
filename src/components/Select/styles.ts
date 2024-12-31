@@ -43,8 +43,8 @@ const menuItemStyles = ({ theme, active }: { theme: BUITheme; active: boolean })
     {
       variants: {
         theme: {
-          light: "bu-bg-light-background hover:bu-bg-light-hover-fill-secondary",
-          dark: "bu-bg-dark-background bu-text-dark-label hover:bu-bg-dark-hover-fill-secondary"
+          light: "bu-bg-light-background hover:bu-bg-light-hover-fill-primary",
+          dark: "bu-bg-dark-background bu-text-dark-label hover:bu-bg-dark-hover-fill-primary"
         },
         active: {
           true: activeItemStyles({ theme }),
@@ -73,4 +73,21 @@ const searchIconStyles = cva("bu-mx-[8px]", {
   }
 });
 
-export { labelStyles, menuItemStyles, menuStyles, outlinedStyles, searchStyles, searchIconStyles };
+const closeIconStyles = cva("bu-w-[16px] bu-h-[16px] bu-mx-[8px] bu-cursor-pointer", {
+  variants: {
+    theme: {
+      light: "bu-text-light-label-20",
+      dark: "bu-text-dark-label-20"
+    }
+  }
+});
+
+export {
+  labelStyles,
+  menuItemStyles,
+  menuStyles,
+  outlinedStyles,
+  searchStyles,
+  searchIconStyles,
+  closeIconStyles
+};

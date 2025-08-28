@@ -2,18 +2,27 @@ import type { StorybookConfig } from "@storybook/react-vite";
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   core: {
-    disableTelemetry: true, // 👈 Disables telemetry
+    disableTelemetry: true // 👈 Disables telemetry
   },
-  addons: ["@storybook/addon-links", "@storybook/addon-interactions", "@storybook/addon-styling", "storybook-dark-mode", {
-    name: "@storybook/addon-essentials",
-    options: {
-      backgrounds: false // 👈 disable the backgrounds addon
-    }
-  }, "@storybook/addon-mdx-gfm"],
+  addons: [
+    "@storybook/addon-links",
+    "@storybook/addon-interactions",
+    "@storybook/addon-styling",
+    "storybook-dark-mode",
+    {
+      name: "@storybook/addon-essentials",
+      options: {
+        backgrounds: false // 👈 disable the backgrounds addon
+      }
+    },
+    "@storybook/addon-mdx-gfm"
+  ],
   framework: {
     name: "@storybook/react-vite",
-    options: {}
+    options: {
+    }
   },
+
   docs: {
     autodocs: true
   },

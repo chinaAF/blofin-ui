@@ -1,6 +1,12 @@
 "use client";
 
-import React, { FC, forwardRef, ForwardRefRenderFunction, InputHTMLAttributes } from "react";
+import React, {
+  FC,
+  forwardRef,
+  ForwardRefRenderFunction,
+  InputHTMLAttributes,
+  LegacyRef
+} from "react";
 import { BUITheme } from "../..";
 import useTheme from "../../provider/useTheme";
 import { cn } from "../../utils/utils";
@@ -18,11 +24,11 @@ import {
 } from "./styles";
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label?: ReactNode;
+  label?: React.ReactNode;
   variant: InputVariant;
   theme?: BUITheme;
-  startAdornment?: ReactNode;
-  endAdornment?: ReactNode;
+  startAdornment?: React.ReactNode;
+  endAdornment?: React.ReactNode;
   error?: boolean;
   helperText?: string;
   disabled?: boolean;

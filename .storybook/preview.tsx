@@ -43,6 +43,9 @@ export const parameters = {
 
       return <DocsContainer {...props} theme={isDark ? themes.dark : themes.light} />;
     }
+  },
+  nextjs: {
+    appDirectory: true
   }
 };
 

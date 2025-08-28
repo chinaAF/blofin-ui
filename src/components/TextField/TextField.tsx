@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC, forwardRef, ForwardRefRenderFunction, InputHTMLAttributes } from "react";
+import React, { FC, forwardRef, ForwardRefRenderFunction, InputHTMLAttributes, LegacyRef } from "react";
 import useTheme from "../../provider/useTheme";
 import { BUITheme } from "../../types/component";
 import { cn } from "../../utils/utils";
@@ -19,8 +19,8 @@ export type InputSize = "sm" | "md" | "lg";
 export interface InputBaseProps extends React.InputHTMLAttributes<HTMLInputElement> {
   variant: InputVariant;
   theme?: BUITheme;
-  startAdornment?: ReactNode;
-  endAdornment?: ReactNode;
+  startAdornment?: React.ReactNode;
+  endAdornment?: React.ReactNode;
   disabled?: boolean;
   error?: boolean;
   inputClassName?: string;

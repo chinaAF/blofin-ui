@@ -74,6 +74,7 @@
     "@storybook/testing-library": "^0.2.0",
     "@storybook/testing-react": "^2.0.1",
     "@storybook/theming": "^7.4.0",
+    "@types/minimatch": "^6.0.0",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@types/react-transition-group": "^4.4.6",
